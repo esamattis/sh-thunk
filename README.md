@@ -32,7 +32,7 @@ task(
         find node_modules -name .babelrc.js -delete
 
         # You can embed any shell code in here
-        echo $(basename $HOME)
+        echo $(basename $HOME) | tr [:lower:] [:upper:]
     `)
 );
 ```
