@@ -23,8 +23,8 @@ test("test-all", series("eslint", "test"));
 task(
     "fix-babel",
     sh.script(`
-        find node_modules/ -name .babelrc -delete
-        find node_modules/ -name .babelrc.js -delete
+        find node_modules -name .babelrc -delete
+        find node_modules -name .babelrc.js -delete
 
         # You can embed any shell scripts here
         echo $(basename $HOME)
