@@ -16,8 +16,8 @@ const sh = require("gulp-sh");
 task("webpack", sh("webpack --mode production"));
 task("webpack-dev-server", sh("webpack-dev-server --mode development"));
 task("jest", sh("jest"));
-task("tslint", sh("eslint --max-warnings 0"));
-test("test-all", series("eslint", "test"));
+task("eslint", sh("eslint --max-warnings 0"));
+test("test-all", series("eslint", "jest"));
 
 // Multiline scripts
 task(
