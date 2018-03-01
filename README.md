@@ -1,7 +1,10 @@
-
 # gulp-sh
 
-Simple shell script plugin for Gulp. Maybe too simple. Not very "gulpy" even.
+Simple shell script plugin for Gulp for those who just need a simple task runner.
+
+- No fancy piping or complicated configuration
+- Honors your SHELL env
+- Scripts are executed with `-eu`
 
 Example:
 
@@ -11,19 +14,21 @@ const sh = require("gulp-sh");
 
 // Simple commands
 task("webpack", sh("webpack --mode production"));
-task("tsc", sh("tsc"));
+task("webpack-dev-server", sh("webpack-dev-server --mode development"));
 task("jest", sh("jest"));
-task("tslint", sh("tslint --type-check --project tsconfig.json"));
-test("test-all", series("tsc", "test", "tshint"));
+task("tslint", sh("eslint --max-warnings 0"));
+test("test-all", series("eslint", "test"));
 
-// Run multiline scripts
+// Multiline scripts
 task(
-    "create-foo",
+    "fix-babel",
     sh.script(`
-        if [ ! -f foo.txt ]; then
-            touch foo.txt
-        fi
-    `),
+        find node_modules/ -name .babelrc -delete
+        find node_modules/ -name .babelrc.js -delete
+
+        # You can embed any shell scripts here
+        echo $(basename $HOME)
+    `)
 );
 ```
 
