@@ -3,7 +3,7 @@
 Simple shell script plugin for Gulp for those who just need a simple task runner.
 
 - No fancy piping - just shell commands
-- No need prefix commands with `./node_modules/.bin/`. It in the PATH automatically.
+- No need to prefix commands with `./node_modules/.bin/`. It in the PATH automatically.
 - Honors your SHELL env
 - Scripts are executed with `-eu`
 
