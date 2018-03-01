@@ -1,0 +1,29 @@
+{
+  "name": "gulp-sh",
+  "version": "0.1.0",
+  "description": "Simple shell plugin for gulp",
+  "main": "gulp-sh.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epeli/gulp-sh.git"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": "Esa-Matti Suuronen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epeli/gulp-sh/issues"
+  },
+  "homepage": "https://github.com/epeli/gulp-sh#readme",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "prettier": "^1.11.1"
+  },
+  "dependencies": {
+    "plugin-error": "^1.0.1"
+  }
+}
