@@ -6,6 +6,8 @@ Simple shell script plugin for Gulp for those who just need a simple task runner
 - Honors your SHELL env
 - Scripts are executed with `-eu`
 
+    npm install gulp-sh
+
 Example:
 
 ```js
