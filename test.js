@@ -12,6 +12,10 @@ describe("parseCommand", () => {
         expect(parseCommand``).toBe("");
     });
 
+    test("arguments in tag", () => {
+        expect(parseCommand`ls -l`).toBe("ls -l");
+    });
+
     test("just array", () => {
         expect(parseCommand(["foo", "bar"])).toBe("foo bar");
     });

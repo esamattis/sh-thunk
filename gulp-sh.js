@@ -92,7 +92,7 @@ function mapParts(part) {
 
 function parseCommand(strings, ...values) {
     if (Array.isArray(strings) && !values[0]) {
-        return strings.map(mapParts).join(" ");
+        return strings.join(" ");
     }
 
     if (typeof strings === "string") {
