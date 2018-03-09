@@ -3,6 +3,8 @@ const PluginError = require("plugin-error");
 
 const PLUGIN_NAME = "gulp-sh";
 
+const SILENT_GULP = process.argv.some(arg => ["--silent", "-S"].includes(arg));
+
 function promiseSpawn(spawnArgs, options, onChild) {
     return new Promise((resolve, reject) => {
         const child = spawn(...spawnArgs, {
@@ -28,7 +30,7 @@ function promiseSpawn(spawnArgs, options, onChild) {
 
 function promiseSh(script, options) {
     return promiseSpawn(
-        ["sh", ["-eux"]],
+        ["sh", ["-eu" + (SILENT_GULP ? "" : "x")]],
         {
             stdio: ["pipe", 1, 2],
             ...options,
