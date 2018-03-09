@@ -41,6 +41,13 @@ function promiseSh(script, options) {
 }
 
 function sh(...args) {
+    if (args[0] === undefined || isPlainObj(args[0])) {
+        const options = args[0];
+        return (...args) => {
+            return () => promiseSh(parseCommand(...args), options);
+        };
+    }
+
     return () => promiseSh(parseCommand(...args));
 }
 
@@ -84,36 +91,25 @@ function mapParts(part) {
 }
 
 function parseCommand(strings, ...values) {
-    if (isPlainObj(strings)) {
-        return (...args) => {
-            return {
-                options: strings,
-                command: parseCommand(...args).command,
-            };
-        };
-    }
-
     if (Array.isArray(strings) && !values[0]) {
-        return {command: strings.map(mapParts).join(" ")};
+        return strings.map(mapParts).join(" ");
     }
 
     if (typeof strings === "string") {
-        return {command: strings};
+        return strings;
     }
 
-    return {
-        command: strings.reduce((acc, part, index) => {
-            const value = values[index];
+    return strings.reduce((acc, part, index) => {
+        const value = values[index];
 
-            return (
-                acc +
-                part +
-                expandIterable(value)
-                    .map(mapParts)
-                    .join(" ")
-            );
-        }, ""),
-    };
+        return (
+            acc +
+            part +
+            expandIterable(value)
+                .map(mapParts)
+                .join(" ")
+        );
+    }, "");
 }
 
 sh.sh = sh;
