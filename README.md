@@ -1,6 +1,6 @@
 # gulp-sh
 
-Simple shell script plugin for Gulp for those who just need a simple task runner. No fancy streaming
+Simple shell script plugin for Gulp for those who just need a simple task runner. No fancy streaming things here.
 
 Example:
 
@@ -18,6 +18,9 @@ task("webpack-dev-server", sh`webpack-dev-server --mode development`);
 // Expand arrays in tagged templates
 task("eslint", sh`eslint --max-warnings 0 ${jsfiles}`);
 task("prettier", sh`prettier --write ${jsfiles}`);
+
+// Pass options to child_process.spawn
+task("prettier", sh({stdio: null})`prettier --write ${jsfiles}`);
 
 // Run commands in parallel with gulp 4
 test("test-all", parallel("eslint", "test"));
