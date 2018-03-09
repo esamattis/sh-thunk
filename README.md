@@ -12,7 +12,7 @@ const jsfiles = ["foo.js", "bar.js"];
 
 // Simple commands
 task("webpack", sh("webpack --mode production"));
-task("webpack", sh(["webpack", "--mode", "development"]));
+task("webpack-dev", sh(["webpack", "--mode", "development"]));
 task("webpack-dev-server", sh`webpack-dev-server --mode development`);
 
 // Expand arrays in tagged templates
