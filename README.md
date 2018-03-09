@@ -15,7 +15,7 @@ task("webpack", sh("webpack --mode production"));
 task("webpack", sh(["webpack", "--mode", "development"]));
 task("webpack-dev-server", sh`webpack-dev-server --mode development`);
 
-// Expand arrays
+// Expand arrays in tagged templates
 task("eslint", sh`eslint --max-warnings 0 ${jsfiles}`);
 task("prettier", sh`prettier --write ${jsfiles}`);
 

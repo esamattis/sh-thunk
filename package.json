@@ -1,6 +1,6 @@
 {
   "name": "gulp-sh",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple shell plugin for gulp",
   "main": "gulp-sh.js",
   "scripts": {
