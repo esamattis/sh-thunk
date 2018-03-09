@@ -2,6 +2,8 @@
 
 Simple shell script plugin for Gulp for those who just need a simple task runner. No fancy streaming things here.
 
+    npm install gulp-sh
+
 Example:
 
 ```js
