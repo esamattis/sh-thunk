@@ -10,6 +10,7 @@ function promiseSpawn(spawnArgs, options, onChild) {
         const child = spawn(...spawnArgs, {
             stdio: "inherit",
             env: {
+                ...process.env,
                 PATH: "node_modules/.bin:" + process.env.PATH,
             },
             ...options,
