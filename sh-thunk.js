@@ -1,7 +1,7 @@
 const {spawn} = require("child_process");
 const PluginError = require("plugin-error");
 
-const PLUGIN_NAME = "gulp-sh";
+const PLUGIN_NAME = "sh-thunk";
 
 const SILENT_GULP = process.argv.some(arg => ["--silent", "-S"].includes(arg));
 

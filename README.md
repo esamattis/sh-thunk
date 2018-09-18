@@ -1,17 +1,15 @@
-# gulp-sh
+# sh-thunk
 
-WARNING: This module has been renamed to sh-thunk.
+Generate promise returning thunks from shell strings.
 
-See <https://github.com/epeli/sh-thunk>
+This makes it really simple to execute shell scripts from task runners
+suchs as Gulp and Jake which can take promise returning function as the task implementation.
 
-
-Simple shell script plugin for Gulp for those who just need a simple task runner. No fancy streaming
-
-Example:
+Here's an example of a `gulpfile.js`:
 
 ```js
 const {task, parallel} = require("gulp");
-const {sh} = require("gulp-sh");
+const {sh} = require("sh-thunk");
 
 const jsfiles = ["foo.js", "bar.js"];
 
@@ -40,6 +38,14 @@ task(
 );
 ```
 
-The scripts are executed with `sh -eu`.
+Jakefile is basically the same:
+
+```js
+const {sh} = require("sh-thunk");
+
+task("webpack", sh("webpack --mode production"));
+```
+
+The scripts are executed with `sh -eu` and `./node_modules/.bin` is put to `PATH` automatically.
 
 That's it.

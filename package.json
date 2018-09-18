@@ -1,31 +1,29 @@
 {
-  "name": "gulp-sh",
-  "version": "0.1.1",
-  "description": "Simple shell plugin for gulp",
-  "main": "gulp-sh.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/epeli/gulp-sh.git"
-  },
-  "keywords": [
-    "gulpplugin"
-  ],
-  "author": "Esa-Matti Suuronen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/epeli/sh-thunk/issues"
-  },
-  "homepage": "https://github.com/epeli/sh-thunk",
-  "devDependencies": {
-    "eslint": "^4.18.1",
-    "gulp": "^4.0.0",
-    "jest": "^22.4.2",
-    "prettier": "^1.11.1"
-  },
-  "dependencies": {
-    "plugin-error": "^1.0.1"
-  }
+    "name": "thunk-sh",
+    "version": "0.1.0",
+    "description": "Simple shell plugin for gulp",
+    "main": "thunk-sh.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epeli/thunk-sh.git"
+    },
+    "keywords": ["gulpplugin"],
+    "author": "Esa-Matti Suuronen",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/epeli/sh-thunk/issues"
+    },
+    "homepage": "https://github.com/epeli/sh-thunk",
+    "devDependencies": {
+        "eslint": "^4.18.1",
+        "gulp": "^4.0.0",
+        "jest": "^22.4.2",
+        "prettier": "^1.11.1"
+    },
+    "dependencies": {
+        "plugin-error": "^1.0.1"
+    }
 }

@@ -1,4 +1,4 @@
-const {sh, parseCommand} = require("./gulp-sh");
+const {sh, parseCommand} = require("./sh-thunk");
 const {spawn} = require("child_process");
 
 global.GULP_SH_TEST = true;

@@ -1,4 +1,4 @@
 const {task} = require("gulp");
-const {sh} = require("./gulp-sh");
+const {sh} = require("./sh-thunk");
 
 task("test", sh`jest`);
