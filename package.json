@@ -1,14 +1,14 @@
 {
-    "name": "thunk-sh",
+    "name": "sh-thunk",
     "version": "0.1.0",
-    "description": "Simple shell plugin for gulp",
-    "main": "thunk-sh.js",
+    "description": "Generate promise returning thunks from shell strings.",
+    "main": "sh-thunk.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/epeli/thunk-sh.git"
+        "url": "git+https://github.com/epeli/sh-thunk.git"
     },
     "keywords": ["gulpplugin"],
     "author": "Esa-Matti Suuronen",
