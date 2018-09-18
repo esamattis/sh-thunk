@@ -5,12 +5,14 @@ const PLUGIN_NAME = "sh-thunk";
 
 const SILENT_GULP = process.argv.some(arg => ["--silent", "-S"].includes(arg));
 
-function promiseSpawn(spawnArgs, options, onChild) {
+function promiseSpawn(spawnArgs, {env, ...options}, onChild) {
     return new Promise((resolve, reject) => {
         const child = spawn(...spawnArgs, {
             stdio: "inherit",
             env: {
+                ...process.env,
                 PATH: "node_modules/.bin:" + process.env.PATH,
+                ...env,
             },
             ...options,
         });
