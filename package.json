@@ -1,6 +1,6 @@
 {
   "name": "sh-thunk",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Generate promise returning thunks from shell strings.",
   "main": "sh-thunk.js",
   "scripts": {
