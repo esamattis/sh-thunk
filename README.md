@@ -1,5 +1,10 @@
 # gulp-sh
 
+WARNING: This module has been renamed to sh-thunk.
+
+See <https://github.com/epeli/sh-thunk>
+
+
 Simple shell script plugin for Gulp for those who just need a simple task runner. No fancy streaming
 
 Example:

@@ -16,9 +16,9 @@
   "author": "Esa-Matti Suuronen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/epeli/gulp-sh/issues"
+    "url": "https://github.com/epeli/sh-thunk/issues"
   },
-  "homepage": "https://github.com/epeli/gulp-sh#readme",
+  "homepage": "https://github.com/epeli/sh-thunk",
   "devDependencies": {
     "eslint": "^4.18.1",
     "gulp": "^4.0.0",
