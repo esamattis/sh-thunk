@@ -1,5 +1,7 @@
 # sh-thunk
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/epeli/sh-thunk.svg)](https://greenkeeper.io/)
+
 Generate promise returning thunks from shell strings.
 
 This makes it really simple to execute shell scripts from task runners
