@@ -1,33 +1,31 @@
 {
-  "name": "sh-thunk",
-  "version": "0.2.6",
-  "description": "Generate promise returning thunks from shell strings.",
-  "main": "sh-thunk.js",
-  "types": "sh-thunk.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/epeli/sh-thunk.git"
-  },
-  "keywords": [
-    "gulpplugin"
-  ],
-  "author": "Esa-Matti Suuronen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/epeli/sh-thunk/issues"
-  },
-  "homepage": "https://github.com/epeli/sh-thunk",
-  "devDependencies": {
-    "eslint": "^5.9.0",
-    "gulp": "^4.0.0",
-    "jest": "^23.6.0",
-    "jake": "^8.0.19",
-    "prettier": "^1.15.2"
-  },
-  "dependencies": {
-    "plugin-error": "^1.0.1"
-  }
+    "name": "sh-thunk",
+    "version": "0.2.6",
+    "description": "Generate promise returning thunks from shell strings.",
+    "main": "sh-thunk.js",
+    "types": "sh-thunk.d.ts",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epeli/sh-thunk.git"
+    },
+    "keywords": ["gulpplugin"],
+    "author": "Esa-Matti Suuronen",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/epeli/sh-thunk/issues"
+    },
+    "homepage": "https://github.com/epeli/sh-thunk",
+    "devDependencies": {
+        "eslint": "^5.9.0",
+        "gulp": "^4.0.0",
+        "jest": "^23.6.0",
+        "jake": "^8.0.19",
+        "prettier": "^1.15.2"
+    },
+    "dependencies": {
+        "plugin-error": "^1.0.1"
+    }
 }
