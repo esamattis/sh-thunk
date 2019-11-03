@@ -53,9 +53,7 @@ Also useful in jest hooks:
 
 ```js
 // generate 5MB file
-beforeAll(
-    sh`dd if=/dev/zero of=big.txt count=5k bs=1024 2> /dev/null`,
-);
+beforeAll(sh`dd if=/dev/zero of=big.txt count=5k bs=1024 2> /dev/null`);
 ```
 
 The scripts are executed with `sh -eu` and `./node_modules/.bin` is put to `PATH` automatically.
