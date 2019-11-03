@@ -53,8 +53,6 @@ beforeAll(sh`dd if=/dev/zero of=big.txt count=5k bs=1024 2> /dev/null`);
 
 The scripts are executed with `sh -eu` and `./node_modules/.bin` is put to `PATH` automatically.
 
-That's it.
-
 ## Capturing output
 
 There's a `sh.capture` variant if you need to capture command output instead
