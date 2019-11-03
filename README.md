@@ -8,8 +8,8 @@ suchs as Gulp and Jake which can take promise returning function as the task imp
 Here's an example of a `gulpfile.js`:
 
 ```js
-const {task, parallel} = require("gulp");
-const {sh} = require("sh-thunk");
+const { task, parallel } = require("gulp");
+const { sh } = require("sh-thunk");
 
 const jsfiles = ["foo.js", "bar.js"];
 
@@ -23,7 +23,7 @@ task("eslint", sh`eslint --max-warnings 0 ${jsfiles}`);
 task("prettier", sh`prettier --write ${jsfiles}`);
 
 // Pass options to child_process.spawn
-task("prettier", sh({stdio: null})`prettier --write ${jsfiles}`);
+task("prettier", sh({ stdio: null })`prettier --write ${jsfiles}`);
 
 // Run commands in parallel with gulp 4
 test("test-all", parallel("eslint", "test"));
@@ -37,14 +37,14 @@ task(
 
         # You can embed any shell scripts here
         echo $(basename $HOME)
-    `
+    `,
 );
 ```
 
 Jakefile is basically the same:
 
 ```js
-const {sh} = require("sh-thunk");
+const { sh } = require("sh-thunk");
 
 task("webpack", sh("webpack --mode production"));
 ```
