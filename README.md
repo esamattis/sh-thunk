@@ -14,16 +14,11 @@ const { sh } = require("sh-thunk");
 const jsfiles = ["foo.js", "bar.js"];
 
 // Simple commands
-task("webpack", sh("webpack --mode production"));
-task("webpack-dev", sh(["webpack", "--mode", "development"]));
 task("webpack-dev-server", sh`webpack-dev-server --mode development`);
 
 // Expand arrays in tagged templates
 task("eslint", sh`eslint --max-warnings 0 ${jsfiles}`);
 task("prettier", sh`prettier --write ${jsfiles}`);
-
-// Pass options to child_process.spawn
-task("prettier", sh({ stdio: null })`prettier --write ${jsfiles}`);
 
 // Run commands in parallel with gulp 4
 test("test-all", parallel("eslint", "test"));
@@ -46,7 +41,7 @@ Jakefile is basically the same:
 ```js
 const { sh } = require("sh-thunk");
 
-task("webpack", sh("webpack --mode production"));
+task("webpack", sh`webpack --mode production`);
 ```
 
 Also useful in jest hooks:
