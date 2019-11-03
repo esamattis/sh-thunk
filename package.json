@@ -18,11 +18,11 @@
     },
     "homepage": "https://github.com/epeli/sh-thunk",
     "devDependencies": {
-        "eslint": "^5.9.0",
-        "gulp": "^4.0.0",
-        "jest": "^23.6.0",
-        "jake": "^8.0.19",
-        "prettier": "^1.15.2"
+        "eslint": "^6.6.0",
+        "gulp": "^4.0.2",
+        "jest": "^24.9.0",
+        "jake": "^10.1.6",
+        "prettier": "^1.18.2"
     },
     "dependencies": {
         "plugin-error": "^1.0.1"
