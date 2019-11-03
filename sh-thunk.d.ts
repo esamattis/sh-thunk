@@ -1,8 +1,17 @@
-export function sh(shell: string): () => Promise<void>;
+interface ShThunk {
+    (shell: string): Promise<void>;
+    (shell: TemplateStringsArray, ...args: string[]): Promise<void>;
+    capture(
+        shell: TemplateStringsArray,
+        ...args: string[]
+    ): Promise<{
+        stdout: string;
+        stderr: string;
+        both: string;
+        toString(): string;
+    }>;
+}
 
-export function sh(
-    shell: TemplateStringsArray,
-    ...args: string[]
-): () => Promise<void>;
+export const sh: ShThunk;
 
 export default sh;

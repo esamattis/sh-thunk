@@ -28,7 +28,7 @@ function promiseSpawn(spawnArgs, {env, ...options}, onChild) {
     });
 }
 
-function promiseSh(script, options) {
+function promiseSh(script, options, onChild) {
     return promiseSpawn(
         ["sh", ["-eu"]],
         {
@@ -36,6 +36,9 @@ function promiseSh(script, options) {
             ...options,
         },
         child => {
+            if (typeof onChild === "function") {
+                onChild(child);
+            }
             child.stdin.write(script);
             child.stdin.end();
         }
@@ -113,6 +116,57 @@ function parseCommand(strings, ...values) {
         );
     }, "");
 }
+
+function pickChunks(chunks, props) {
+    return Buffer.concat(
+        chunks.reduce((acc, current) => {
+            for (const prop of props) {
+                if (current[prop]) {
+                    acc.push(current[prop]);
+                }
+            }
+
+            return acc;
+        }, [])
+    ).toString();
+}
+
+sh.capture = function captupre(...args) {
+    return () => {
+        const chunks = [];
+
+        const wrap = {
+            get stdout() {
+                return pickChunks(chunks, ["stdout"]);
+            },
+            get stderr() {
+                return pickChunks(chunks, ["stderr"]);
+            },
+            get both() {
+                return pickChunks(chunks, ["stdout", "stderr"]);
+            },
+            toString() {
+                return pickChunks(chunks, ["stdout", "stderr"]);
+            },
+        };
+
+        return promiseSh(
+            parseCommand(...args),
+            {
+                stdio: "pipe",
+            },
+            function onChild(child) {
+                child.stdout.on("data", chunk => {
+                    console.log("joo");
+                    chunks.push({stdout: chunk});
+                });
+                child.stderr.on("data", chunk => {
+                    chunks.push({stderr: chunk});
+                });
+            }
+        ).then(() => wrap);
+    };
+};
 
 sh.sh = sh;
 sh.parseCommand = parseCommand;

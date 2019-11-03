@@ -1,3 +1,4 @@
+const fs = require("fs").promises;
 const {sh, parseCommand} = require("./sh-thunk");
 const {spawn} = require("child_process");
 
@@ -45,5 +46,56 @@ describe("parseCommand", () => {
         }
 
         expect(parseCommand`foo: ${gen()}`).toBe("foo: a b");
+    });
+});
+
+describe("sh.capture", () => {
+    test("can capture stdout", async () => {
+        const {stdout} = await sh.capture`
+            echo hello stdout
+            >&2 echo hello stderr
+        `();
+        expect(stdout.trim()).toEqual("hello stdout");
+    });
+
+    test("can get stderr", async () => {
+        const {stderr} = await sh.capture`
+            echo hello stdout
+            >&2 echo hello stderr
+        `();
+        expect(stderr.trim()).toEqual("hello stderr");
+    });
+
+    test("can get combined stdout and stderr", async () => {
+        const {both} = await sh.capture`
+            echo -n foo
+            >&2 echo -n bar
+            echo -n baz
+        `();
+        expect(both.trim()).toEqual("foobazbar");
+    });
+
+    test("rejects on errors", async () => {
+        await expect(sh.capture`exit 123`()).rejects.toMatchObject({
+            message: "Bad exit code: 123",
+        });
+    });
+
+    test("can you .toString()", async () => {
+        const out = await sh.capture`
+            echo -n foo
+            >&2 echo -n bar
+            echo -n baz
+        `();
+        expect(`${out}`).toEqual("foobazbar");
+    });
+
+    test("can read multi chunk files", async () => {
+        const file = `${__dirname}/package-lock.json`;
+        const real = await fs.readFile(file);
+
+        const {stdout} = await sh.capture`cat ${file}`();
+
+        expect(stdout).toEqual(real.toString());
     });
 });

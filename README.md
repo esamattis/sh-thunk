@@ -59,3 +59,20 @@ beforeAll(sh`dd if=/dev/zero of=big.txt count=5k bs=1024 2> /dev/null`);
 The scripts are executed with `sh -eu` and `./node_modules/.bin` is put to `PATH` automatically.
 
 That's it.
+
+## Caputuring output
+
+There's a `sh.capture` variant if you need to capture command output instead
+of piping it through.
+
+```js
+const {
+    stdout,
+    stderr,
+    both,
+} = await sh.capture`git rev-parse --abbrev-ref HEAD`();
+```
+
+Where `stdout` and `stderr` are strings of the corresponding output channels
+and `both` is string with both outputs interleaved as it would show up in the
+terminal.
