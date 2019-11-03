@@ -3,7 +3,9 @@
 Generate promise returning thunks from shell strings.
 
 This makes it really simple to execute shell scripts from task runners
-suchs as Gulp and Jake which can take promise returning function as the task implementation.
+suchs as Gulp and [Jake][] which can take promise returning function as the task implementation.
+
+[jake]: https://jakejs.com/
 
 Here's an example of a `gulpfile.js`:
 
@@ -36,15 +38,13 @@ task(
 );
 ```
 
-[Jakefile][] is basically the same:
+`jakefile.js` is basically the same:
 
 ```js
 const { sh } = require("sh-thunk");
 
 task("webpack", sh`webpack --mode production`);
 ```
-
-[jakefile]: https://jakejs.com/
 
 Also useful in jest hooks:
 
