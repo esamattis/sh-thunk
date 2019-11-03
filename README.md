@@ -41,6 +41,7 @@ task(
 `jakefile.js` is basically the same:
 
 ```js
+const { task } = require("jake");
 const { sh } = require("sh-thunk");
 
 task("webpack", sh`webpack --mode production`);
