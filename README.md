@@ -36,13 +36,15 @@ task(
 );
 ```
 
-Jakefile is basically the same:
+[Jakefile][] is basically the same:
 
 ```js
 const { sh } = require("sh-thunk");
 
 task("webpack", sh`webpack --mode production`);
 ```
+
+[jakefile]: https://jakejs.com/
 
 Also useful in jest hooks:
 
