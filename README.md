@@ -55,7 +55,7 @@ The scripts are executed with `sh -eu` and `./node_modules/.bin` is put to `PATH
 
 That's it.
 
-## Caputuring output
+## Capturing output
 
 There's a `sh.capture` variant if you need to capture command output instead
 of piping it through.
