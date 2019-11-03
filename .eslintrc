@@ -1,8 +1,8 @@
 {
     "extends": ["eslint:recommended"],
     "parserOptions": {
-        "sourceType": "cjs",
-        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaVersion": 2019,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true
         }
@@ -27,8 +27,8 @@
         "no-unused-vars": 1,
         "no-trailing-spaces": 1,
         "keyword-spacing": 1,
-        "object-curly-spacing": [1, "never"],
+        "object-curly-spacing": 0,
         "curly": [2, "multi-line"],
-        "quotes": [1, "double", {"avoidEscape": true}]
+        "quotes": [1, "double", { "avoidEscape": true }]
     }
 }

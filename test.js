@@ -1,6 +1,5 @@
 const fs = require("fs").promises;
-const {sh, parseCommand} = require("./sh-thunk");
-const {spawn} = require("child_process");
+const { sh, parseCommand } = require("./sh-thunk");
 
 global.GULP_SH_TEST = true;
 
@@ -27,7 +26,7 @@ describe("parseCommand", () => {
 
     test("tag usage with array", () => {
         expect(parseCommand`foo: ${["first", "second"]}`).toBe(
-            "foo: first second"
+            "foo: first second",
         );
     });
 
@@ -51,7 +50,7 @@ describe("parseCommand", () => {
 
 describe("sh.capture", () => {
     test("can capture stdout", async () => {
-        const {stdout} = await sh.capture`
+        const { stdout } = await sh.capture`
             echo hello stdout
             >&2 echo hello stderr
         `();
@@ -59,7 +58,7 @@ describe("sh.capture", () => {
     });
 
     test("can get stderr", async () => {
-        const {stderr} = await sh.capture`
+        const { stderr } = await sh.capture`
             echo hello stdout
             >&2 echo hello stderr
         `();
@@ -67,7 +66,7 @@ describe("sh.capture", () => {
     });
 
     test("can get combined stdout and stderr", async () => {
-        const {both} = await sh.capture`
+        const { both } = await sh.capture`
             echo -n foo
             >&2 echo -n bar
             echo -n baz
@@ -94,7 +93,7 @@ describe("sh.capture", () => {
         const file = `${__dirname}/package-lock.json`;
         const real = await fs.readFile(file);
 
-        const {stdout} = await sh.capture`cat ${file}`();
+        const { stdout } = await sh.capture`cat ${file}`();
 
         expect(stdout).toEqual(real.toString());
     });

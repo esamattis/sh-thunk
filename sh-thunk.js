@@ -1,9 +1,9 @@
-const {spawn} = require("child_process");
+const { spawn } = require("child_process");
 const PluginError = require("plugin-error");
 
 const PLUGIN_NAME = "sh-thunk";
 
-function promiseSpawn(spawnArgs, {env, ...options}, onChild) {
+function promiseSpawn(spawnArgs, { env, ...options }, onChild) {
     return new Promise((resolve, reject) => {
         const child = spawn(...spawnArgs, {
             stdio: "inherit",
@@ -41,7 +41,7 @@ function promiseSh(script, options, onChild) {
             }
             child.stdin.write(script);
             child.stdin.end();
-        }
+        },
     );
 }
 
@@ -127,7 +127,7 @@ function pickChunks(chunks, props) {
             }
 
             return acc;
-        }, [])
+        }, []),
     ).toString();
 }
 
@@ -157,13 +157,12 @@ sh.capture = function captupre(...args) {
             },
             function onChild(child) {
                 child.stdout.on("data", chunk => {
-                    console.log("joo");
-                    chunks.push({stdout: chunk});
+                    chunks.push({ stdout: chunk });
                 });
                 child.stderr.on("data", chunk => {
-                    chunks.push({stderr: chunk});
+                    chunks.push({ stderr: chunk });
                 });
-            }
+            },
         ).then(() => wrap);
     };
 };

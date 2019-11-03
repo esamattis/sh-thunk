@@ -5,7 +5,7 @@
     "main": "sh-thunk.js",
     "types": "sh-thunk.d.ts",
     "scripts": {
-        "test": "jest"
+        "test": "eslint . --max-warnings 0 && jest"
     },
     "repository": {
         "type": "git",
