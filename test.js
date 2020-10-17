@@ -67,9 +67,9 @@ describe("sh.capture", () => {
 
     test("can get combined stdout and stderr", async () => {
         const { both } = await sh.capture`
-            echo -n foo
-            >&2 echo -n bar
-            echo -n baz
+            printf foo
+            >&2 printf bar
+            printf baz
         `();
         expect(both.trim()).toEqual("foobazbar");
     });
@@ -82,9 +82,9 @@ describe("sh.capture", () => {
 
     test("can you .toString()", async () => {
         const out = await sh.capture`
-            echo -n foo
-            >&2 echo -n bar
-            echo -n baz
+            printf foo
+            >&2 printf bar
+            printf baz
         `();
         expect(`${out}`).toEqual("foobazbar");
     });
