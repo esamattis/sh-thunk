@@ -43,6 +43,10 @@ describe("parseCommand", () => {
 ${"bar"}`).toBe("foo and bar");
     });
 
+    test("can use multiple expansions with empty values", () => {
+        expect(parseCommand`${""}just ${"bar"}`).toBe("just bar");
+    });
+
     test("tag can expand generator", () => {
         function* gen() {
             yield "a";

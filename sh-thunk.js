@@ -96,7 +96,7 @@ function mapParts(part) {
 }
 
 function parseCommand(strings, ...values) {
-    if (Array.isArray(strings) && !values[0]) {
+    if (Array.isArray(strings) && values[0] === undefined) {
         return strings.join(" ");
     }
 
