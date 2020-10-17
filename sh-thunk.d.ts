@@ -1,5 +1,7 @@
 interface ShThunk {
     (shell: TemplateStringsArray, ...args: string[]): () => Promise<void>;
+    (shell: string): () => Promise<void>;
+    (shell: string[]): () => Promise<void>;
     capture(
         shell: TemplateStringsArray,
         ...args: string[]
