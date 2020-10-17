@@ -38,6 +38,11 @@ describe("parseCommand", () => {
         expect(parseCommand`foo: ${"foo bar"}`).toBe("foo: 'foo bar'");
     });
 
+    test("can use multiple expansions", () => {
+        expect(parseCommand`${"foo"} and \
+${"bar"}`).toBe("foo and bar");
+    });
+
     test("tag can expand generator", () => {
         function* gen() {
             yield "a";
